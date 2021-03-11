@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_ChangeKey"
+        android:title="Kulcs beállítása"
+        android:icon="@drawable/ic_baseline_vpn_key_24"/>
+    <item
+        android:id="@+id/menu_Refresh"
+        android:title="Frissítés"
+        android:icon="@drawable/ic_baseline_refresh_24"/>
+    <item
+        android:id="@+id/menu_Quit"
+        android:title="Kilépés"
+        android:icon="@drawable/ic_baseline_refresh_24"/>
+</menu>
