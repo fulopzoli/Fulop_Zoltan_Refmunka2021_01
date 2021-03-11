@@ -10,13 +10,16 @@
         android:name=".HilltApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Fulop_Zoltan_Simplexion.NoActionBar">
-        <activity android:name=".Ui.Activity.MainActivity">
+        android:theme="@style/Theme.Fulop_Zoltan_Simplexion">
+        <activity android:name=".Ui.Activity.MainActivity"
+            android:theme="@style/Theme.Fulop_Zoltan_Simplexion.Transparent">
+
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

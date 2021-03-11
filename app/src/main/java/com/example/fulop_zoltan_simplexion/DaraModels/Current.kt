@@ -1,7 +1,6 @@
 package com.example.fulop_zoltan_simplexion.DaraModels
 
 data class Current(
-    val air_quality: AirQuality,
     val cloud: Int,
     val condition: Condition,
     val feelslike_c: Double,

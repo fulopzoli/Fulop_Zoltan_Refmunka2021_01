@@ -22,4 +22,15 @@
     <style name="Theme.Fulop_Zoltan_Simplexion.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Fulop_Zoltan_Simplexion.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-</resources>
+
+  <style name="Theme.Fulop_Zoltan_Simplexion.Transparent" parent="Theme.MaterialComponents.Light">
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="windowActionBarOverlay">true</item>
+    <item name="colorPrimary">@android:color/transparent</item>
+</style>
+
+<style name="AppTheme.ActionBar" parent="Theme.MaterialComponents.Light">
+<item name="windowActionBarOverlay">false</item>
+<item name="colorPrimary">@color/black</item>
+</style>
+    </resources>
