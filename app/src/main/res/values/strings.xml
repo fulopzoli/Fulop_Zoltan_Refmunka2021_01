@@ -6,7 +6,27 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="PermissionDialog">El kell fogadnod a hozzáférést a helyadatokhoz.</string>
+    <string name="Celsius">°C</string>
+    <string name="kmh">km/h</string>
+    <string name="wind_power">Szélerősség :</string>
+    <string name="wind_dir">Szélirány :</string>
+    <string name="no_internet">Nincs internet</string>
+    <string name="exit">Kilépés</string>
+    <string name="yes">Igen</string>
+    <string name="No">Nem</string>
+    <string name="ExitTitle">Kilépés</string>
+    <string name="exitdialog_message">Biztosan kilép ?</string>
+    <string name="cancel">Mégse</string>
+    <string name="modify_api_key_text">Appi kulcs módosítása</string>
+    <string name="api_key_hint">Api kulcs</string>
+    <string name="modify_api_text">Módosít</string>
+    <string name="api_key_modify_dialog_message">Biztosan módosítod az api kulcsot ?</string>
+    <string name="Error">Hiba : </string>
+    <string name="Error_401">Sikertelen azonosítás</string>
+    <string name="modify_key">Kulcs beállítása</string>
+    <string name="refresh">Frissítés</string>
+    <string name="quit">Kilépés</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 </resources>

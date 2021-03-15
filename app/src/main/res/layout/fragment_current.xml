@@ -1,6 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/currentFragment"
+    tools:background="@color/Crayola_Blue">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_horizontal_guidleline_top_0.03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_vertical_guidleline_mid_0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_vertical_guidleline_mid_0.6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_vertical_guidleline_mid_0.8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_vertical_guidleline_mid_0.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/city_textview"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        android:text=" "
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.1"
+        app:layout_constraintTop_toTopOf="@+id/fragment_horizontal_guidleline_top_0.03" />
+
+    <ImageView
+        android:id="@+id/weather_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/description_textview"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        android:src="@drawable/ic_baseline_refresh_24" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/temperature_text"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text=" "
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.1"
+        app:layout_constraintTop_toBottomOf="@+id/city_textview"
+        tools:text="23 °C" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/description_textview"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:text=" "
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.1"
+        app:layout_constraintTop_toBottomOf="@+id/temperature_text"
+        tools:text="Leírások dolgok valamik" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/windpowr_textview"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:autoSizeMaxTextSize="60sp"
+        android:text=" "
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.1"
+        app:layout_constraintTop_toBottomOf="@+id/description_textview"
+        tools:text="@string/wind_power" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wind_direction_textview"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:autoSizeMaxTextSize="60sp"
+        android:text=" "
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="2sp"
+
+        android:autoSizeTextType="uniform"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.1"
+        app:layout_constraintTop_toBottomOf="@+id/windpowr_textview"
+        tools:text="@string/wind_dir" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wind_speed_number_textview"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text=" "
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="6sp"
+        android:autoSizeStepGranularity="2sp"
+        android:gravity="center"
+
+        android:autoSizeTextType="uniform"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        tools:text="30 Kmh"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/windpowr_textview"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.5"
+        app:layout_constraintTop_toTopOf="@+id/windpowr_textview"
+        tools:targetApi="o" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="6sp"
+        android:text=" "
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:id="@+id/wind_direction_number_textview"
+        android:maxHeight="150dp"
+        android:minHeight="16dp"
+        android:singleLine="false"
+        tools:text="SWW"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/wind_direction_textview"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_vertical_guidleline_mid_0.6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_vertical_guidleline_mid_0.5"
+        app:layout_constraintTop_toTopOf="@+id/wind_direction_textview"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

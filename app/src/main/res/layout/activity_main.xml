@@ -4,57 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Activity.MainActivity">
+    tools:context=".Ui.Activity.MainActivity"
+    android:background="@color/Crayola_Blue">
 
-   <!-- <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/FlFragment"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/guideline">
 
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/ToolbarTitle"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Próba cím........" />
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/Mainmenus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" /> -->
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="270dp"
+            tools:layout="@layout/fragment_current"/>
 
 
-        <FrameLayout
-            android:id="@+id/FlFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
-
-            <fragment
-                android:id="@+id/navHostFragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_graph" />
+    </FrameLayout>
 
 
-        </FrameLayout>
-
-   <!-- </com.google.android.material.appbar.AppBarLayout>-->
+    <!-- </com.google.android.material.appbar.AppBarLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

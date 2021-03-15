@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/currentFragment">
+    app:startDestination="@id/errorFragment">
 
 
     <fragment
         android:id="@+id/currentFragment"
         android:name="com.example.fulop_zoltan_simplexion.Ui.Fragments.CurrentFragment"
         android:label="CurrentFragment" />
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.example.fulop_zoltan_simplexion.Ui.Fragments.ErrorFragment"
+        android:label="ErrorFragment" />
+    <action android:id="@+id/action_global_currentFragment" app:destination="@id/currentFragment" />
+    <action android:id="@+id/action_global_errorFragment" app:destination="@id/errorFragment" />
+    <dialog
+        android:id="@+id/apikeyModifyDialogFragment"
+        android:name="com.example.fulop_zoltan_simplexion.Ui.Dialog.ApikeyModifyDialogFragment"
+        android:label="ApikeyModifyDialogFragment" />
+    <action android:id="@+id/action_global_apikeyModifyDialogFragment" app:destination="@id/apikeyModifyDialogFragment" />
 </navigation>
