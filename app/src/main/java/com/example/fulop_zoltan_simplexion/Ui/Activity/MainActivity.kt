@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.fulop_zoltan_simplexion.Const.Consts
 import com.example.fulop_zoltan_simplexion.Other.Utility
 import com.example.fulop_zoltan_simplexion.R
+import com.example.fulop_zoltan_simplexion.R.string.ApiKey
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,7 +50,25 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         val shareddValue = sharedPreferences.getString(Consts.API_KEY_STRING_KEY, "")
 
         if (shareddValue.isNullOrEmpty() || shareddValue.isNullOrBlank()) {
-            navController.navigate(R.id.action_global_apikeyModifyDialogFragment)
+            val builer = MaterialAlertDialogBuilder(this)
+
+            builer.setTitle(getString(R.string.ApikeyTitle))
+                .setMessage(getString(R.string.FirstStartkDialogmessage))
+                .setNegativeButton(
+                    getString(R.string.No), DialogInterface.OnClickListener { dialog, which ->
+                        navController.navigate(R.id.action_global_apikeyModifyDialogFragment)
+                    }
+                )
+                .setPositiveButton(getString(R.string.yes),
+                    DialogInterface.OnClickListener { dialog, which ->
+                        Utility.saveKey(
+                            getString(ApiKey), this
+                        )
+                        if (Utility.hasInternetConnection(this)) {
+                            navController.navigate(R.id.action_global_currentFragment)
+                        } else navController.navigate(R.id.action_global_errorFragment)
+                    }).show()
+
         }
 
     }
@@ -79,8 +98,9 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
 
                     }
                     timer.start()
-                } else{
-                    navigateToRightFragment()}
+                } else {
+                    navigateToRightFragment()
+                }
                 true
 
             }

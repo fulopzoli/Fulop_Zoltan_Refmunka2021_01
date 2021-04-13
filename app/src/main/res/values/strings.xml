@@ -27,6 +27,8 @@
     <string name="modify_key">Kulcs beállítása</string>
     <string name="refresh">Frissítés</string>
     <string name="quit">Kilépés</string>
+    <string name="ApikeyTitle">Api kulcs</string>
+    <string name="FirstStartkDialogmessage">Szeretné az alapértelmezett api kulcsot használni ? </string>
 
 
 </resources>
