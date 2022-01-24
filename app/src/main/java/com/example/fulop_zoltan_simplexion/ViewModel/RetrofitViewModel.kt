@@ -36,12 +36,11 @@ class RetrofitViewModel @ViewModelInject constructor(private val repository: Ret
             if (result.isSuccessful) {
                 emit(result.body()!!)
             } else {
-                emit(result.code())
+                emit(result)
             }
 
-
         } catch (e: IOException) {
-            Log.d("IOerror", e.toString())
+            emit(e.message);
         }
 
     }

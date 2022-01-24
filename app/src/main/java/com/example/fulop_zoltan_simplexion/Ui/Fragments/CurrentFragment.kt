@@ -2,6 +2,7 @@ package com.example.fulop_zoltan_simplexion.Ui.Fragments
 
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.content.SharedPreferences
@@ -24,6 +25,7 @@ import com.example.fulop_zoltan_simplexion.Other.Utility
 import com.example.fulop_zoltan_simplexion.R
 import com.example.fulop_zoltan_simplexion.ViewModel.RetrofitViewModel
 import com.example.fulop_zoltan_simplexion.databinding.FragmentCurrentBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Response
@@ -68,38 +70,36 @@ class CurrentFragment : Fragment(R.layout.fragment_current),
         viewmodel.getData.observe(this, Observer {
 
 
-            if (it is WeatherData) {
 
-                Glide.with(this).load("https:" + it.current.condition.icon)
-                    .into(binding.weatherImage)
+            when(it) {
 
-                binding.apply {
-                    binding.weatherImage.visibility = View.VISIBLE
-                    cityTextview.text = it.location.name
-                    temperatureText.text =
-                        it.current.temp_c.toString() + getString(R.string.Celsius)
-                    descriptionTextview.text = it.current.condition.text
-                    windSpeedNumberTextview.text =
-                        it.current.wind_kph.toString() + getString(R.string.kmh)
-                    windDirectionNumberTextview.text = it.current.wind_dir
-                    windpowrTextview.text = getString(R.string.wind_power)
-                    windDirectionTextview.text = getString(R.string.wind_dir)
+                is WeatherData -> {
+                    utility.loading(false,requireActivity())
+                    Glide.with(this).load("https:" + it.current.condition.icon)
+                        .into(binding.weatherImage)
 
-
+                    binding.apply {
+                        binding.weatherImage.visibility = View.VISIBLE
+                        cityTextview.text = it.location.name
+                        temperatureText.text =
+                            it.current.temp_c.toString() + getString(R.string.Celsius)
+                        descriptionTextview.text = it.current.condition.text
+                        windSpeedNumberTextview.text =
+                            it.current.wind_kph.toString() + getString(R.string.kmh)
+                        windDirectionNumberTextview.text = it.current.wind_dir
+                        windpowrTextview.text = getString(R.string.wind_power)
+                        windDirectionTextview.text = getString(R.string.wind_dir)
+                    }
                 }
-            } else
+                is Response<*> -> {
+                    utility.loading(false,requireActivity())
+                    initAlertdialogbuilder(it.code().toString()+it.errorBody().toString(),"Hiba")
+                }
 
-                when (it) {
-                    401 -> Toast.makeText(
-                        requireContext(),
-                        getString(R.string.Error) + getString(R.string.Error_401),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    else -> Toast.makeText(
-                        requireContext(),
-                        getString(R.string.Error) + it.toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                else -> {
+                    utility.loading(false,requireActivity())
+                    initAlertdialogbuilder(it.toString(),"Hiba")}
+
                 }
 
 
@@ -142,4 +142,16 @@ class CurrentFragment : Fragment(R.layout.fragment_current),
     }
 
 
+    private fun initAlertdialogbuilder(dialogText: String, title: String) {
+        val builder = MaterialAlertDialogBuilder(requireContext())
+        builder.setTitle(title)
+            .setMessage(dialogText)
+            .setPositiveButton("Ok") { _, _ ->
+
+            }
+            .create()
+            .show()
+
+
+    }
 }

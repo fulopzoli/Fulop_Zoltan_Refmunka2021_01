@@ -86,18 +86,10 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
             R.id.menu_Refresh -> {
                 if (Utility.hasInternetConnection(this)) {
                     item.isEnabled = false
+                    utility.loading(true,this)
                     navigateToRightFragment()
-                    val timer = object : CountDownTimer(4000, 1000) {
-                        override fun onTick(millisUntilFinished: Long) {
+                    item.isEnabled = true
 
-                        }
-
-                        override fun onFinish() {
-                            item.isEnabled = true
-                        }
-
-                    }
-                    timer.start()
                 } else {
                     navigateToRightFragment()
                 }
